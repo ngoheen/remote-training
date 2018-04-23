@@ -1,3 +1,158 @@
+/* ----- mobile first ----- */
+
+body {
+    font-family: "Unify Serif", serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1#branding {
+    background: url(food-sense.png) no-repeat 0 0;
+    height: 120px;
+    margin-top: 0;
+    text-indent: -999em;
+    width: 120px;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-areas: "header-left hero"
+    "footer footer";
+    grid-template-columns: 160px 1fr;
+}
+header {
+    align-content: start;
+    display: grid;
+    grid-area: header-left;
+    grid-gap: 24px;
+    grid-template-areas: "h1" "nav" "aside";
+}
+.content {
+    grid-area: hero;
+    overflow: hidden;
+}
+
+.footer {
+    grid-area: footer;
+}
+a,
+a:link,
+a:visited {
+    color: #34ac98;
+    text-decoration: none;
+}
+header nav {
+    margin-top: 20px;
+}
+header nav ul,
+header nav li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+header nav li {
+    display: block;
+    line-height: 1.3em;
+    margin-bottom: 18px;
+}
+header nav li a {
+    color: #222222;
+    display: block;
+    font-size: 16px;
+    font-style: italic;
+    height: 28px;
+    padding: 4px 0 0 44px;
+    -webkit-transition: all .2s ease;
+       -moz-transition: all .2s ease;
+         -o-transition: all .2s ease;
+            transition: all .2s ease;
+}
+header nav li a {
+    background-position: 0 65%;
+    background-repeat: no-repeat;
+}
+header nav li#t-tastemakers a {
+    background-image: url("nav-tastemakers.png");
+}
+header nav li#t-blog a {
+    background-image: url("nav-blog.png");
+}
+nav li#t-vendors a {
+    background-image: url("nav-alist.png");
+}
+header nav li#t-contribute a {
+    background-image: url("nav-contribute.png");
+}
+header nav li#t-about a {
+    background-image: url("nav-about.png");
+}
+nav li[id^="t-"] a:hover {
+    background-position: 5px 65%;
+}
+/*nav li a {
+
+    padding: 4px 0 0 44px;
+    font-style: italic;
+    color: #222;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+nav li#t-tastemakers a {
+    background-image: url(nav-tastemakers.png);
+    width: 32px;
+    height: 32px;
+}
+nav li#t-tastemakers a:hover{
+    transform: translateX(4px);
+}*/
+.button {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    -webkit-box-shadow: 1px 1px 2px #f5f5f5;
+       -moz-box-shadow: 1px 1px 2px #f5f5f5;
+            box-shadow: 1px 1px 2px #f5f5f5;
+    box-sizing: content-box;
+    display: block;
+    padding: 10px 20px;
+    -webkit-transition: all .2s ease;
+       -moz-transition: all .2s ease;
+         -o-transition: all .2s ease;
+            transition: all .2s ease;
+}
+aside[role="social"] section h1 {
+    border-bottom: 1px dashed #e5e5e5;
+    font-size: .75em;
+    margin: 0 0 9px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+aside[role="social"] a.button {
+    background: no-repeat 6px 6px;
+    height: 24px;
+    padding: 4px 0 0 28px;
+    width: 120px;
+}
+aside[role="social"] section p {
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.75em;
+    margin-bottom: 15px;
+}
+aside .twitter a.button {
+    background-image: url("icon-twitter-16.png");
+}
+aside .facebook a.button {
+    background-image: url("icon-facebook-16.png");
+}
+aside[role="social"] section {
+    display: block;
+    margin-bottom: 32px;
+    padding-right: 20px;
+}
+
 /* ----------------------------- */
 /* ----- featured gallery  ----- */
 /* ----------------------------- */
@@ -73,8 +228,6 @@
     display: block;
     font-size: 24px;
     font-style: italic;
-    font-weight: normal;
-    margin: 0;
     padding: 10px 24px;
     transition: opacity .2s ease;
 
@@ -90,8 +243,6 @@
     display: inline-block;
     font-size: 16px;
     font-style: italic;
-    font-weight: normal;
-    margin: 0;
     padding: 8px 24px;
     transition: opacity .2s ease;
 
@@ -101,7 +252,6 @@
     height: 100%;
     width: auto;
 }
-
 
 /* ----------------------------- */
 /* ----- newsletter signup ----- */
@@ -166,6 +316,55 @@
     max-width: calc(100% - 18px);
 }
 
+/* ---------------- */
+/* ---- footer ---- */
+/* ---------------- */
+
+footer.footer {
+    border-top: 2px solid #e5e5e5;
+    clear: both;
+    color: #aaaaaa;
+    min-height: 70px;
+    padding-top: 20px;
+    position: relative;
+}
+footer.footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+}
+footer.footer p {
+    font-size: .75em;
+    line-height: 1.5em;
+}
+footer .social ul {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+}
+footer .social li {
+    display: inline-block;
+}
+footer .social li a {
+    display: block;
+    height: 32px;
+    opacity: .4;
+    text-indent: -999em;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+    width: 32px;
+}
+footer .twitter a {
+    background: url("icon-twitter.png") no-repeat 50% 1px;
+}
+footer .facebook a {
+    background: url("icon-facebook.png") no-repeat 50% 0;
+}
+footer .rss a {
+    background: url("icon-rss.png") no-repeat 50% 0;
+}
 
 @media only screen and (max-width:991px) {
     .wrapper {

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- http://foodsense.is/ -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/basic.css">
+<style>
+/* ----- mobile first ----- */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Unify Serif', serif;
+}
+
+h1#branding {
+    width: 120px;
+    height: 120px;
+    text-indent: -999em;
+    background: url(food-sense.png) no-repeat 0 0;
+    margin-top: 0;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 160px 1fr;
+    grid-template-areas: 
+      "header-left hero"
+      "footer footer";
+}
+header {
+    grid-area: header-left;
+    display: grid;
+    align-content: start;
+    grid-template-areas:
+        "h1" "nav" "aside";
+        grid-gap: 24px;
+}
+.content {
+    grid-area: hero;
+    overflow: hidden;
+}
+
+.footer {
+    grid-area:footer;
+}
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #34AC98;
+}
+header nav {
+    margin-top: 20px;
+}
+header nav a:hover {
+    color: #EC6635;
+}
+header nav ul,
+header nav li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+header nav li {
+    display: block;
+    margin-bottom: 18px;
+    line-height: 1.3em;
+}
+header nav li a {
+    display: block;
+    height: 28px;
+    padding: 4px 0 0 44px;
+    font-style: italic;
+    font-size: 16px;
+    color: #222;
+    transition: all .2s ease;
+}
+header nav li a {
+    background-position: 0 65%;
+    background-repeat: no-repeat;
+}
+header nav li#t-tastemakers a {
+    background-image: url('nav-tastemakers.png');
+}
+header nav li#t-blog a {
+    background-image: url('nav-blog.png');
+}
+nav li#t-vendors a {
+    background-image: url('nav-alist.png');
+}
+header nav li#t-contribute a {
+    background-image: url('nav-contribute.png');
+}
+header nav li#t-about a {
+    background-image: url('nav-about.png');
+}
+nav li[id^="t-"] a:hover{
+    background-position: 5px 65%;
+}
+
+.button {
+    display: block;
+    padding: 10px 20px;
+    background: #FFF;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+    box-shadow: 1px 1px 2px #F5F5F5;
+    transition: all .2s ease;
+    box-sizing: content-box;
+}
+aside[role="social"] section h1 {
+    margin: 0 0 9px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-size: .75em;
+    border-bottom: 1px dashed #E5E5E5;
+}
+aside[role="social"] a.button {
+    width: 120px;
+    height: 24px;
+    padding: 4px 0 0 28px;
+    background: no-repeat 6px 6px;
+}
+aside[role="social"] section p {
+    line-height: 1.75em;
+    font-size: 11px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+aside .twitter a.button {
+    background-image: url('icon-twitter-16.png');
+}
+aside .facebook a.button {
+    background-image: url('icon-facebook-16.png');
+}
+aside[role="social"] section {
+    display: block;
+    margin-bottom: 32px;
+    padding-right: 20px;
+}
+
+/* ----------------------------- */
+/* ----- featured gallery  ----- */
+/* ----------------------------- */
+
+#featured {
+    display: flex;
+    flex-direction: column;
+}
+#featured nav {
+    background: #eff8f7;
+}
+#featured nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#featured nav li {
+    display: grid;
+    align-items: center;
+    padding: 28px 0 25px 20px;
+}
+#featured nav li {
+    border-right: 1px solid rgb(211,237,233);
+    box-shadow: 1px 0 0 #fafdfc;
+}
+#featured nav li.activeSlide {
+    background: #d9efec;
+}
+#featured nav a h3,
+#featured nav a p {
+    margin: 0;
+    padding: 0;
+
+}
+#featured nav a h3 {
+    font-size: 1.125em;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.1em;
+    line-height: 12px;
+    text-shadow: 0 1px 0 #fafdfc;
+}
+#featured nav a p {
+    display: inline;
+    font-size: .75em;
+    font-style: italic;
+    line-height: 1.1em;
+}
+#featured .slide { 
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "image"
+    "caption";
+    height: 445px;
+    overflow: hidden;
+    width: 100%;
+}
+#featured .slide .slide-img {
+    grid-area: image;  
+    grid-row: 1/3;
+
+}
+#featured .slide .caption {
+    grid-area:caption;
+    grid-row: 2/3;
+    background:transparent;
+    align-content: center;   
+    display: grid;
+}
+#featured .slide .caption h4 {
+    background: white;
+    color: black;
+    display: block;
+    padding: 10px 24px;
+    font-size: 24px;
+    font-style: italic;
+    transition: opacity .2s ease;
+    justify-self: end;
+}
+#featured .slide .caption:hover {
+    opacity: .8;
+}
+#featured .slide .caption h5 {
+    background: black;
+    color: white;
+    display: block;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-style: italic;
+    transition: opacity .2s ease;
+    justify-self: end;
+    display: inline-block;
+}
+#featured .slide img {
+    height: 100%;
+    width: auto;
+}
+
+/* ----------------------------- */
+/* ----- newsletter signup ----- */
+/* ----------------------------- */
+
+#newsletter {  
+    background: url('icon-mailinglist-32.png') no-repeat 18px 15px;
+    border-bottom: 1px dashed #e5e5e5;
+    border-top: 1px dashed #e5e5e5;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    line-height: 1em;
+    margin-bottom: 29px;
+    padding: 15px 0;
+}
+
+#newsletter input#email {
+    width: 160px;
+}
+#newsletter p {
+    padding: 0 24px 0 66px;
+    font-size: .75em;
+    font-style: italic;
+}
+#newsletter form {
+
+}
+#newsletter fieldset {
+    display: inline;
+}
+#newsletter .submit {
+    margin-left: 5px;
+}
+
+
+#recent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 24px;
+}
+#recent article h1 {
+    margin: 10px 0 10px;
+    line-height: 1.3em;
+}
+#recent article p {
+    font-size: .875em;
+    line-height: 1.45em;
+}
+#recent article p.meta {
+    margin-top: 10px;
+    color: #aaa;
+}
+
+.content #recent img.border {
+    padding: 9px;
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    box-shadow: 1px 1px 3px #F5F5F5; 
+    max-width: calc(100% - 18px);  
+}
+.content #recent article a {
+    max-width: calc(100% - 18px);
+}
+
+/* ---------------- */
+/* ---- footer ---- */
+/* ---------------- */
+
+footer.footer {
+    clear: both;
+    position: relative;
+    min-height: 70px;
+    padding-top: 20px;
+    border-top: 2px solid #E5E5E5;
+    color: #AAA;
+}
+footer.footer {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr auto;
+}
+footer.footer p {
+    line-height: 1.5em;
+    font-size: .75em;
+}
+footer .social ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+footer .social li {
+    display: inline-block;
+}
+footer .social li a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    text-indent: -999em;
+    opacity: .4;
+    transition: opacity .3s ease;
+}
+footer .twitter a {
+    background: url('icon-twitter.png') no-repeat 50% 1px;
+}
+footer .facebook a {
+    background: url('icon-facebook.png') no-repeat 50% 0;
+}
+footer .rss a {
+    background: url('icon-rss.png') no-repeat 50% 0;
+}
+/*
+@media only screen and (max-width:991px) {
+
+    .wrapper {
+        width: 712px;
+        padding: 20px 28px 0;
+    }
+    nav li[id^="t-"] a:hover{
+        background-position: 50% 3px;
+    }  
+}
+@media only screen and (max-width: 1174) and (min-width:992px) {
+    .wrapper {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-columns: 160px 1fr;
+        grid-template-areas: "header-left" "hero" "footer";
+    }
+}
+@media only screen and (max-width: 1175px) and (min-width: 768px) {
+    body {
+        padding: 0 28px 0;
+    }
+   
+    header {
+        grid-area: header-left;
+        display: grid;
+        align-content: start;
+        grid-template-areas:
+        "h1 nav";
+        grid-gap: 0;
+        grid-template-columns:200px 1fr;
+    }
+    aside {
+        display: none;
+    }
+    
+    nav ul {
+        display: grid;
+        grid-gap: 10px;
+        padding: 0;
+        list-style: none;
+        align-content: end;
+        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+    }
+    header nav li a {
+        background-position: 50% 0;
+        padding: 40px 0 0;
+        text-align: center;
+    }
+    header nav a {
+        display: inline;
+        padding: 35px 15px 0 15px;
+    }
+    header nav {
+        margin-top: 0;
+        display: grid;
+        align-content: center;
+    }
+    header nav li {
+        margin-bottom: 0;
+    }
+    #featured .slide img {
+        height: 445px;
+        overflow: hidden;
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: 1176px) {
+    .wrapper {
+        width: 1080px;
+        padding: 50px 0 0;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 1175px) {
+    #featured nav a h3 {
+        font-size: .875em;
+    }
+    #featured nav a p {
+        display: none;
+    }
+    #featured nav li {
+        padding: 12px 0;
+        text-align: center;
+    }
+ 
+    .wrapper {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header-left"
+        "hero"
+        "footer";
+        margin: 0 auto;
+            width: 896px;
+
+    }
+}
+*/
+
+/* wide desk */
+@media only screen and (min-width:992px) {
+    .content {
+        width: 896px;
+    }
+}
+
+/* narrow desk */
+
+@media only screen and (min-width:768px) and (max-width: 991px) {
+    .content {
+        width: 712px;
+    }
+    header {
+        grid-area: header-left;
+        display: grid;
+        align-content: start;
+        grid-template-areas:
+        "h1 nav";
+        grid-gap: 0;
+        grid-template-columns: 200px 1fr;
+    }
+    
+    aside {
+        display: none;
+    }
+    #featured .slide .slide-img {
+        grid-area: image;
+        grid-row-start: image;
+        grid-row-end: image;
+        grid-row: 1/3;
+        width: 712px;
+    }
+}
+
+/* tablets */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .content {
+        width: 480px;
+    }
+    .wrapper {
+        width: 480px;
+    }
+    #featured .slide,
+    #featured .slide .slide-img {
+        max-width: 480px;
+        height: 310px;
+    }
+   
+    header {
+        grid-area: header-left;
+        display: grid;
+        align-content: start;
+        grid-template-areas:
+        "h1 nav";
+        grid-gap: 0;
+        grid-template-columns: 150px 1fr;
+        align-items: center
+        margin-top: 24px;
+        width: 480px;
+    }
+    nav ul {
+        display: grid;
+        grid-gap: 0;
+        padding: 0;
+        list-style: none;
+        align-content: end;
+        grid-template-columns: repeat(5, auto);
+    }
+  
+    header nav li a {
+        background-position: 50% 0;
+        padding: 0;
+
+    }
+    header nav a {
+        display: inline;
+        padding: 35px 15px 0 15px;
+    }
+    header nav {
+        margin-top: 0;
+        display: grid;
+        align-content: center;
+    }
+    header nav li {
+        margin-bottom: 0;
+    }
+    header nav li[id^="t-"] a{
+        background-image: none !important;
+        font-size: 12px;
+    }
+    /*header nav li[id^="t-"] a:hover{
+        background-position: 50% 3px;
+    }  */
+    aside {
+        display: none;
+    }
+    #featured .slide .caption {
+        align-content: end;
+    }
+    #featured .slide .caption h4 {
+        padding: 10px;
+        font-size: 13px;
+        justify-self: stretch;
+        opacity: .8;
+    }
+    #featured .slide .caption h5 {
+        padding: 10px;
+        font-size: 11px;
+        justify-self: stretch;
+        opacity: .8;
+    }
+    #newsletter {
+        grid-gap: 0;
+        grid-template-columns: 1fr;
+        margin-top: 24px;
+    }
+    #newsletter form {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15px;
+    margin-left: 20px;
+    grid-gap: 10px;
+}
+    #newsletter form input#email{
+        width: 300px;
+    }
+    #recent {
+    grid-template-columns: 1fr 1fr;
+    }
+}
+#newsletter p {
+padding: 0 24px 0 66px;
+font-size: .75em;
+}
+
+/* small devices */
+
+@media only screen and (max-width: 479px) {
+    #recent {
+        grid-template-columns: 1fr;
+        margin-bottom: 24px;
+    }
+
+    .content {
+        width: 320px;
+        display: grid;
+        margin: 0 auto 20px auto;
+    }
+    .wrapper {
+        display: grid;
+        grid-gap: 12px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header-left" "hero"
+            "footer";
+    }
+    header {
+        grid-area: header-left;
+        display: grid;
+        align-content: start;
+        grid-template-areas:
+            "h1" "nav";
+        grid-gap: 24px;
+    }
+    .content {
+        grid-area: hero;
+        overflow: hidden;
+        width: 320px;
+        margin: 0 auto;
+    }
+    footer {
+        padding-bottom: 40px;
+    }
+    #newsletter {
+        grid-gap: 0;
+        grid-template-columns: 1fr;
+        padding: 15px 5px 20px 0;
+        margin: 24px 0;
+    }
+
+
+
+
+
+
+
+    .content #recent,
+    .content #recent img.border {
+        margin: 0 auto;
+        width: 280px;
+    }
+    .content #recent img.border {
+        max-width: none;
+    }
+    .content #recent h1 {
+        font-size: 16px;
+    }   
+    .content #recent p,
+    .content #recent p.meta {
+        font-size: 14px;
+    }
+    #newsletter {
+        background-position: 18px 15px;
+    }
+    #newsletter p {
+        float: none;
+        width: 100%;
+        padding: 0 0 0 66px;
+        font-size: 11px;
+        font-style: italic;
+    }
+    #featured .slide  {
+        height: 310px;
+    }
+    #featured .slide .slide-img {
+        max-width: 100%;
+        overflow: hidden;
+    }
+     #featured .slide img  {
+        max-width: none;
+    }
+    #newsletter form {
+        float: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 15px;
+        margin-left: 20px;
+        grid-gap: 10px;
+    }
+    #featured nav {
+        display: none;
+    }
+    #featured .slide .caption h4 {
+        padding: 10px;
+        font-size: 13px;
+        justify-self: stretch;
+        opacity: .8;
+    }
+    #featured .slide .caption h5 {
+        padding: 10px;
+        font-size: 11px;
+        justify-self: stretch;
+        opacity: .8;
+    }
+    #featured .slide .caption {
+        align-content: end;
+    }
+    header {
+        align-content: center;
+        grid-gap: 0;
+    }
+    h1#branding {
+        order: 1;
+        align-self: center;
+        text-align: center;
+        margin: 20px auto 10px;
+    }
+    aside {
+        display: none;
+    }
+    header nav ul {
+        display: grid;
+        grid-template-columns: repeat(5, auto);    
+        
+    }
+    header nav li {
+        justify-self: center; 
+    }
+    header nav li a {
+        color: #222;
+        display: block;
+        height: 28px;
+        font-size: 12px;
+        font-style: italic;
+        padding: 20px 0;
+        -webkit-transition: all .2s ease;
+        -moz-transition: all .2s ease;
+        -o-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+    #newsletter {
+        padding: 15px 0;
+    }
+    header nav li#t-tastemakers a,
+    header nav li#t-blog a,
+    header nav li#t-vendors a,
+    header nav li#t-contribute a,
+    header nav li#t-about a {
+        background-image: none;
+    }
+
+    header nav {
+        border-bottom: 1px solid #e5e5e5;
+        width: 320px;
+        margin: 0 auto;
+    }
+    footer {
+        font-size: 12px;
+        margin: 0 auto;
+        width: 320px;
+    }
+}
+@media only screen and (max-width: 1175px) and (min-width: 768px) {
+    body {
+        padding: 0 28px 0;
+    }
+    .wrapper {
+        width: 712px;
+        padding: 20px 28px 0;
+    }
+    header {
+        grid-area: header-left;
+        display: grid;
+        align-content: start;
+        grid-template-areas:
+        "h1 nav";
+        grid-gap: 0;
+        grid-template-columns:200px 1fr;
+    }
+    aside {
+        display: none;
+    }
+    
+    nav ul {
+        display: grid;
+        grid-gap: 10px;
+        padding: 0;
+        list-style: none;
+        align-content: end;
+        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+    }
+    header nav li a {
+        background-position: 50% 0;
+        padding: 40px 0 0;
+        text-align: center;
+    }
+    header nav a {
+        display: inline;
+        padding: 35px 15px 0 15px;
+    }
+    header nav {
+        margin-top: 0;
+        display: grid;
+        align-content: center;
+    }
+    header nav li {
+        margin-bottom: 0;
+    }
+    #featured .slide img {
+        height: 445px;
+        overflow: hidden;
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: 1176px) {
+    .wrapper {
+        width: 1080px;
+        padding: 50px 0 0;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 1175px) {
+    #featured nav a h3 {
+        font-size: .875em;
+    }
+    #featured nav a p {
+        display: none;
+    }
+    #featured nav li {
+        padding: 12px 0;
+        text-align: center;
+    }
+   
+    .wrapper {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header-left"
+        "hero"
+        "footer";
+        margin: 0 auto;
+    }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    
+    <header>
+        <h1 id="branding">Food Sense</h1>
+	    <nav>
+		    <ul>
+			    <li id="t-tastemakers"><a href="http://foodsense.is/tastemakers">Tastemakers</a></li>
+			    <li id="t-blog"><a href="http://foodsense.is/blog">Blog</a></li>
+			    <li id="t-vendors"><a href="http://foodsense.is/a-list">The A-List</a></li>
+			    <li id="t-contribute"><a href="http://foodsense.is/contribute">Contribute</a></li>
+			    <li id="t-about"><a href="http://foodsense.is/about">About</a></li>
+		    </ul>
+	    </nav>
+	    <aside role="social">
+            <section class="twitter"> 
+                <h1>Latest Tweet</h1>
+                <p><a href="http://twitter.com/getfoodsense" class="button">Join the Conversation</a></p>
+            </section> 
+            
+            <section class="facebook">
+                <h1>Let's be friends!</h1>
+                <p>For weekly finds, community recommendations, and more, like us on Facebook.</p>
+                <p><a href="http://www.facebook.com/getfoodsense" class="button">Join the Community</a></p>
+            </section>
+        </aside>
+    </header>
+    
+    <div class="content">
+        <section id="featured">
+            <div class="slide">
+                <div class="slide-img">
+                    <img src="images/0140_foodsense.jpg">
+                </div>
+                <div class="caption"><h4>What&rsquo;s Cooking?</h4><h5>Browse our gallery for dependably delicious recipes. </h5></div>
+            </div>
+            <nav>
+                <ul>
+                    <li id="feature-1" class="activeSlide"><a href="/tastemakers"><h3>Tastemakers</h3><p>Feast your eyes &amp; get recipes!</p></a></li>
+                    <li id="feature-2" class=""><a href="/blog"><h3>Blog</h3><p>News, how-tos, stories, and more</p></a></li>
+                    <li id="feature-3" class=""><a href="/a-list"><h3>The A-List</h3><p>Handpicked, absolute favorites</p></a></li>
+                    <li id="feature-4" class=""><a href="/contribute"><h3>Contribute</h3><p>We want to hear from you!</p></a></li>
+                </ul>
+            </nav>
+        </section>
+        <section id="newsletter">
+	        <p>Sign up for our newsletter to receive a handpicked selection of the best stories, recipes, and news, delivered weekly to your inbox.</p>
+            <form action="http://thevegpost.us2.list-manage1.com/subscribe/post?u=be2c472e2e43f8735d9666407&amp;id=83098190d4" method="post" name="mc-embedded-subscribe-form">
+                <fieldset>
+                    <label for="email" class="hide">Email</label>
+                    <input type="email" id="email" name="EMAIL" placeholder="Email">
+                </fieldset>
+                <fieldset class="submit">
+                    <input type="submit" value="Subscribe" name="subscribe">
+                </fieldset>
+            </form>
+        </section>
+        <section id="recent" class="blog">
+	        
+	        <article>
+                <a href="http://foodsense.is/blog/2012s-best-summer-cookbooks">
+                    <img src="http://foodsense.is/uploads/post-images/cookbooks_blog.jpg" class="border" alt="image">		                
+                    <h1>2012’s Best Summer Cookbooks</h1></a>
+                    <p>With the best of the season coming from “orchards, farms and gardens,” NPR has put together an impressive collection of 10 summer cookbooks.</p>
+                    <p class="meta"><time datetime="2012-05-23T02:41-05:00" pubdate="">May 23, 2012</time> / <a href="http://foodsense.is/blog/2012s-best-summer-cookbooks">Read »</a></p>
+            </article>
+	
+            <article>
+		<a href="http://foodsense.is/blog/how-to-make-vegetable-chips"><img src="http://foodsense.is/uploads/post-images/SweetPotatoChips.jpg" class="border" alt="image">		<h1>How to Make Vegetable Chips</h1></a>
+		<p>About a month ago, I ate almost an entire box of kale chips. My brother and I were visiting our cousin in Brooklyn, and before a very thoughtfully prepared vegan…</p>
+		<p class="meta"><time datetime="2012-05-17T08:35-05:00" pubdate="">May 17, 2012</time> / <a href="http://foodsense.is/blog/how-to-make-vegetable-chips">Read »</a></p>
+	</article>
+
+            <article>
+		<a href="http://foodsense.is/blog/were-on-pinterest"><img src="http://foodsense.is/uploads/post-images/Pinterest_Page_featured.png" class="border" alt="image">		<h1>Join us on Pinterest!</h1></a>
+		<p>If I could curate a cookbook for you, this would be it.</p>
+		<p class="meta"><time datetime="2012-05-16T09:59-05:00" pubdate="">May 16, 2012</time> / <a href="http://foodsense.is/blog/were-on-pinterest">Read »</a></p>
+	</article>
+	
+            <article>
+		<a href="http://foodsense.is/blog/recipes-from-a-sunday-supper"><img src="http://foodsense.is/uploads/post-images/Adithi_Dinner_blog.jpg" class="border" alt="image">		<h1>Recipes from a Sunday Supper</h1></a>
+		<p>I could not figure out what to do with the delectable slices of Pear Cake that I brought home from this wonderful Sunday supper - eat them slowly, a little bit at…</p>
+		<p class="meta"><time datetime="2012-05-15T09:42-05:00" pubdate="">May 15, 2012</time> / <a href="http://foodsense.is/blog/recipes-from-a-sunday-supper">Read »</a></p>
+	</article>
+	
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p><a href="http://foodsense.is/legal">Privacy Policy</a> | <a href="http://foodsense.is/legal#terms">Terms of Use</a> | <span id="eeEncEmail_bCDbqPdYXq"><a href="mailto:hello@foodsense.is">Contact</a></span>
+        <br>© 2018 Food Sense, all rights reserved.</p>
+        <div class="social">
+            <ul>
+			    <li class="twitter"><a href="http://twitter.com/getfoodsense">Twitter</a></li>
+			    <li class="facebook"><a href="http://www.facebook.com/getfoodsense">Facebook</a></li>
+			    <li class="rss"><a href="http://foodsense.is/rss">Subscribe via RSS</a></li>
+		    </ul>
+	    </div>
+    </footer>
+
+</div>
+</body>
+</html>

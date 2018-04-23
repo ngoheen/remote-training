@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- http://foodsense.is/ -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/fonts.css">
+<style>
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: inherit;
+    font-style: normal;
+    vertical-align: baseline;
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+textarea, select, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid;
+        border-top-color: currentcolor;
+        border-right-color: currentcolor;
+        border-bottom-color: currentcolor;
+        border-left-color: currentcolor;
+    border-color: #848484 #c1c1c1 #e1e1e1;
+    color: #000;
+    outline: 0;
+    padding: 2px 3px;
+    font-size: 13px;
+    font-family: Arial, 'Liberation Sans', FreeSans, sans-serif;
+    height: 1.8em;
+    *padding-top: 2px;
+    *padding-bottom: 1px;
+    *height: auto;
+}
+button, input[type="reset"], input[type="submit"], input[type="button"] {
+    -webkit-appearance: none;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+    background: #ddd url(../img/button.png) repeat-x;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
+    background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
+    border: 1px solid;
+    border-color: #ddd #bbb #999;
+    cursor: pointer;
+    color: #333;
+    font: bold 12px/1.3 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+    outline: 0;
+    overflow: visible;
+    padding: 3px 10px;
+    text-shadow: #fff 0 1px 1px;
+    width: auto;
+}
+input, select {
+    vertical-align: middle;
+}
+input, button, select, textarea {
+    margin: 0;
+    vertical-align: middle;
+}
+input, select {
+    vertical-align: middle;
+}
+input, button, select, textarea {
+    margin: 0;
+    vertical-align: middle;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    font-size: 100%;
+    font-weight: inherit;
+    font-style: normal;
+}
+#newsletter
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Unify Serif', serif;
+}
+img {
+    max-width: 100%;
+}
+.hide {
+    display: none;
+}
+h1#branding {
+    width: 120px;
+    height: 120px;
+    text-indent: -999em;
+    background: url(food-sense.png) no-repeat 0 0;
+    margin-top: 0;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 160px 1fr;
+    grid-template-areas: 
+      "header-left hero"
+      "footer footer";
+}
+header {
+    grid-area: header-left;
+    display: grid;
+    align-content: start;
+}
+.content {
+    grid-area: hero;
+
+}
+
+
+.footer {
+    grid-area:footer;
+}
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #34AC98;
+}
+header nav {
+margin-top: 20px;
+}
+header nav ul,
+header nav li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+header nav li {
+    display: block;
+    margin-bottom: 18px;
+    line-height: 1.3em;
+}
+header nav li a {
+    display: block;
+    height: 28px;
+    padding: 4px 0 0 44px;
+    font-style: italic;
+    color: #222;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+header nav li a {
+    background-position: 0 65%;
+    background-repeat: no-repeat;
+}
+header nav li#t-tastemakers a {
+    background-image: url('nav-tastemakers.png');
+}
+header nav li#t-blog a {
+    background-image: url('nav-blog.png');
+}
+nav li#t-vendors a {
+    background-image: url('nav-alist.png');
+}
+header nav li#t-contribute a {
+    background-image: url('nav-contribute.png');
+}
+header nav li#t-about a {
+    background-image: url('nav-about.png');
+}
+/*nav li a {
+
+    padding: 4px 0 0 44px;
+    font-style: italic;
+    color: #222;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+nav li#t-tastemakers a {
+    background-image: url(nav-tastemakers.png);
+    width: 32px;
+    height: 32px;
+}
+nav li#t-tastemakers a:hover{
+    transform: translateX(4px);
+}*/
+#featured {
+    display: flex;
+    flex-direction: column;
+}
+#featured nav {
+    background: #EFF8F7;
+}
+#featured nav ul {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+#featured nav li {
+    display: grid;
+    align-items: center;
+    padding: 25px 20px;
+}
+#featured nav li {
+    border-right: 1px solid rgb(211,237,233);
+    box-shadow: 1px 0 0 #FAFDFC;
+}
+#featured nav a h3,
+#featured nav a p {
+margin: 0;
+padding: 0;
+
+}
+#featured nav a h3 {
+    font-size: 1.125em;
+    font-weight: normal;
+    line-height: 1.1em;
+}
+#featured nav a p {
+    font-size: .75em;
+    font-style: italic;
+    display: inline;
+    line-height: 1.1em;
+}
+#newsletter {
+    overflow: hidden;
+    clear: both;
+    width: 100%;
+    min-height: 48px;
+    margin-bottom: 29px;
+    line-height: 1em;
+    border-top: 1px dashed #E5E5E5;
+    border-bottom: 1px dashed #E5E5E5;
+    background: url('icon-mailinglist-32.png') no-repeat 18px 7px;
+}
+
+#newsletter input#email {
+    width: 160px;
+}
+#newsletter p {
+    float: left;
+    width: 49%;
+    padding: 7px 24px 0 66px;
+    font-size: .75em;
+    font-style: italic;
+}
+#newsletter form {
+    float: left;
+    display: block;
+    margin-top: 11px;
+}
+#newsletter fieldset {
+    display: inline;
+}
+#newsletter .submit {
+    margin-left: 10px;
+}
+#recent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 24px;
+}
+#recent article h1 {
+    margin: 10px 0 10px;
+    line-height: 1.3em;
+}
+#recent article p {
+    font-size: .875em;
+    line-height: 1.45em;
+}
+#recent article p.meta {
+    margin-top: 10px;
+    color: #AAA;
+}
+
+.content #recent img.border {
+    padding: 9px;
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    -webkit-box-shadow: 1px 2px 3px #F5F5F5;
+    -moz-box-shadow: 1px 1px 3px #F5F5F5;
+    box-shadow: 1px 1px 3px #F5F5F5; 
+    max-width: calc(100% - 18px);  
+}
+.content #recent article a {
+    max-width: calc(100% - 18px);
+}
+
+/* ---------------- */
+/* ---- footer ---- */
+/* ---------------- */
+
+footer.footer {
+    clear: both;
+    position: relative;
+    min-height: 70px;
+    padding-top: 20px;
+    border-top: 2px solid #E5E5E5;
+    color: #AAA;
+}
+footer.footer {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr auto;
+}
+footer.footer p {
+    line-height: 1.5em;
+    font-size: .75em;
+}
+footer .social ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+footer .social li {
+    display: inline-block;
+}
+footer .social li a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    text-indent: -999em;
+    opacity: .4;
+    -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+}
+footer .twitter a {
+    background: url('icon-twitter.png') no-repeat 50% 1px;
+}
+footer .facebook a {
+    background: url('icon-facebook.png') no-repeat 50% 0;
+}
+footer .rss a {
+    background: url('icon-rss.png') no-repeat 50% 0;
+}
+
+
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+}
+@media only screen and (min-width: 1176px) {
+    .wrapper {
+        width: 1080px;
+        padding: 50px 48px 0;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 1175px) {
+    #featured nav a h3 {
+        font-size: .875em;
+    }
+    #featured nav a p {
+        display: none;
+    }
+    #featured nav li {
+        padding: 8px 48px;
+    }
+    .wrapper {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-columns: 160px 1fr;
+        grid-template-areas: 
+        "header-left hero"
+        "footer footer";
+    }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 id="branding">Food Sense</h1>
+	    <nav>
+		    <ul>
+			    <li id="t-tastemakers"><a href="http://foodsense.is/tastemakers">Tastemakers</a></li>
+			    <li id="t-blog"><a href="http://foodsense.is/blog">Blog</a></li>
+			    <li id="t-vendors"><a href="http://foodsense.is/a-list">The A-List</a></li>
+			    <li id="t-contribute"><a href="http://foodsense.is/contribute">Contribute</a></li>
+			    <li id="t-about"><a href="http://foodsense.is/about">About</a></li>
+		    </ul>
+	    </nav>
+    </header>
+    
+    <div class="content">
+        <section id="featured">
+            <img src="images/0140_foodsense.jpg">
+            <nav>
+                <ul>
+                    <li id="feature-1" class="activeSlide"><a href="/tastemakers"><h3>Tastemakers</h3><p>Feast your eyes &amp; get recipes!</p></a></li>
+                    <li id="feature-2" class=""><a href="/blog"><h3>Blog</h3><p>News, how-tos, stories, and more</p></a></li>
+                    <li id="feature-3" class=""><a href="/a-list"><h3>The A-List</h3><p>Handpicked, absolute favorites</p></a></li>
+                    <li id="feature-4" class=""><a href="/contribute"><h3>Contribute</h3><p>We want to hear from you!</p></a></li>
+                </ul>
+            </nav>
+        </section>
+        <section id="newsletter" style="margin-top: 24px;">
+	        <p>Sign up for our newsletter to receive a handpicked selection of the best stories, recipes, and news, delivered weekly to your inbox.</p>
+            <form action="http://thevegpost.us2.list-manage1.com/subscribe/post?u=be2c472e2e43f8735d9666407&amp;id=83098190d4" method="post" name="mc-embedded-subscribe-form">
+                <fieldset>
+                    <label for="email" class="hide">Email</label>
+                    <input type="email" id="email" name="EMAIL" placeholder="Email">
+                </fieldset>
+                <fieldset class="submit">
+                    <input type="submit" value="Subscribe" name="subscribe">
+                </fieldset>
+            </form>
+        </section>
+        
+        <section id="recent" class="blog">
+	        
+	        <article>
+                <a href="http://foodsense.is/blog/2012s-best-summer-cookbooks">
+                    <img src="http://foodsense.is/uploads/post-images/cookbooks_blog.jpg" class="border" alt="image">		                
+                    <h1>2012’s Best Summer Cookbooks</h1></a>
+                    <p>With the best of the season coming from “orchards, farms and gardens,” NPR has put together an impressive collection of 10 summer cookbooks.</p>
+                    <p class="meta"><time datetime="2012-05-23T02:41-05:00" pubdate="">May 23, 2012</time> / <a href="http://foodsense.is/blog/2012s-best-summer-cookbooks">Read »</a></p>
+            </article>
+	
+            <article>
+		<a href="http://foodsense.is/blog/how-to-make-vegetable-chips"><img src="http://foodsense.is/uploads/post-images/SweetPotatoChips.jpg" class="border" alt="image">		<h1>How to Make Vegetable Chips</h1></a>
+		<p>About a month ago, I ate almost an entire box of kale chips. My brother and I were visiting our cousin in Brooklyn, and before a very thoughtfully prepared vegan…</p>
+		<p class="meta"><time datetime="2012-05-17T08:35-05:00" pubdate="">May 17, 2012</time> / <a href="http://foodsense.is/blog/how-to-make-vegetable-chips">Read »</a></p>
+	</article>
+
+            <article>
+		<a href="http://foodsense.is/blog/were-on-pinterest"><img src="http://foodsense.is/uploads/post-images/Pinterest_Page_featured.png" class="border" alt="image">		<h1>Join us on Pinterest!</h1></a>
+		<p>If I could curate a cookbook for you, this would be it.</p>
+		<p class="meta"><time datetime="2012-05-16T09:59-05:00" pubdate="">May 16, 2012</time> / <a href="http://foodsense.is/blog/were-on-pinterest">Read »</a></p>
+	</article>
+	
+            <article>
+		<a href="http://foodsense.is/blog/recipes-from-a-sunday-supper"><img src="http://foodsense.is/uploads/post-images/Adithi_Dinner_blog.jpg" class="border" alt="image">		<h1>Recipes from a Sunday Supper</h1></a>
+		<p>I could not figure out what to do with the delectable slices of Pear Cake that I brought home from this wonderful Sunday supper - eat them slowly, a little bit at…</p>
+		<p class="meta"><time datetime="2012-05-15T09:42-05:00" pubdate="">May 15, 2012</time> / <a href="http://foodsense.is/blog/recipes-from-a-sunday-supper">Read »</a></p>
+	</article>
+	
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p><a href="http://foodsense.is/legal">Privacy Policy</a> | <a href="http://foodsense.is/legal#terms">Terms of Use</a> | <span id="eeEncEmail_bCDbqPdYXq"><a href="mailto:hello@foodsense.is">Contact</a></span>
+        <br>© 2018 Food Sense, all rights reserved.</p>
+        <div class="social">
+            <ul>
+			    <li class="twitter"><a href="http://twitter.com/getfoodsense">Twitter</a></li>
+			    <li class="facebook"><a href="http://www.facebook.com/getfoodsense">Facebook</a></li>
+			    <li class="rss"><a href="http://foodsense.is/rss">Subscribe via RSS</a></li>
+		    </ul>
+	    </div>
+    </footer>
+
+</div>
+</body>
+</html>
+<!-- 
+<aside role="social">
+	<section class="twitter"> 
+		<h1>Latest Tweet</h1>
+		
+		<p><a href="http://twitter.com/getfoodsense" class="button">Join the Conversation</a></p>
+	</section> 
+	<section class="facebook">
+		<h1>Let's be friends!</h1>
+		<p>For weekly finds, community recommendations, and more, like us on Facebook.</p>
+		<p><a href="http://www.facebook.com/getfoodsense" class="button">Join the Community</a></p>
+	</section>
+</aside>
+-->
