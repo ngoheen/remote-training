@@ -2,6 +2,13 @@
 header nav {
     margin-top: 20px;
 }
+header h1#branding {
+    background: url(food-sense.png) no-repeat 0 0;
+    height: 120px;
+    margin-top: 0;
+    text-indent: -999em;
+    width: 120px;
+}
 header nav ul,
 header nav li {
     list-style-type: none;
@@ -30,19 +37,19 @@ header nav li a {
     background-repeat: no-repeat;
 }
 header nav li#t-tastemakers a {
-    background-image: url("images/nav-tastemakers.png");
+    background-image: url("../img/nav-tastemakers.png");
 }
 header nav li#t-blog a {
-    background-image: url("nav-blog.png");
+    background-image: url("../img/nav-blog.png");
 }
 nav li#t-vendors a {
-    background-image: url("nav-alist.png");
+    background-image: url("../img/nav-alist.png");
 }
 header nav li#t-contribute a {
-    background-image: url("nav-contribute.png");
+    background-image: url("../img/nav-contribute.png");
 }
 header nav li#t-about a {
-    background-image: url("nav-about.png");
+    background-image: url("../img/nav-about.png");
 }
 nav li[id^="t-"] a:hover {
     background-position: 5px 65%;
