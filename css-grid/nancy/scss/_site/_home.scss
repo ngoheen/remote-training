@@ -1,1 +1,397 @@
+/* ----------------------------- */
+/* ----- featured gallery  ----- */
+/* ----------------------------- */
 
+#featured {
+    display: flex;
+    flex-direction: column;
+}
+#featured nav {
+    background: #eff8f7;
+}
+#featured nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#featured nav li {
+    align-items: center;
+    display: grid;
+    padding: 28px 0 25px 20px;
+}
+#featured nav li {
+    border-right: 1px solid rgb(211,237,233);
+    box-shadow: 1px 0 0 #fafdfc;
+}
+#featured nav li.activeSlide {
+    background: #d9efec;
+}
+#featured nav a h3,
+#featured nav a p {
+    margin: 0;
+    padding: 0;
+}
+#featured nav a h3 {
+    font-size: 1.125em;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.1em;
+    line-height: 12px;
+    text-shadow: 0 1px 0 #fafdfc;
+}
+#featured nav a p {
+    display: inline;
+    font-size: .75em;
+    font-style: italic;
+    line-height: 1.1em;
+}
+#featured .slide {
+    display: grid;
+    grid-template-areas: "image"
+    "caption";
+    grid-template-rows: 1fr 1fr;
+    height: 445px;
+    overflow: hidden;
+    width: 100%;
+}
+#featured .slide .slide-img {
+    grid-area: image;
+    grid-row: 1/3;
+}
+#featured .slide .caption {
+    align-content: center;
+    background: transparent;
+    display: grid;
+    grid-area: caption;
+    grid-row: 2/3;
+}
+#featured .slide .caption h4 {
+    background: white;
+    color: black;
+    display: block;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 24px;
+    transition: opacity .2s ease;
+
+    justify-self: end;
+}
+#featured .slide .caption:hover {
+    opacity: .8;
+}
+#featured .slide .caption h5 {
+    background: black;
+    color: white;
+    display: block;
+    display: inline-block;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0;
+    padding: 8px 24px;
+    transition: opacity .2s ease;
+
+    justify-self: end;
+}
+#featured .slide img {
+    height: 100%;
+    width: auto;
+}
+
+
+/* ----------------------------- */
+/* ----- newsletter signup ----- */
+/* ----------------------------- */
+
+#newsletter {
+    background: url("icon-mailinglist-32.png") no-repeat 18px 15px;
+    border-bottom: 1px dashed #e5e5e5;
+    border-top: 1px dashed #e5e5e5;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    line-height: 1em;
+    margin-bottom: 29px;
+    padding: 15px 0;
+}
+
+#newsletter input#email {
+    width: 160px;
+}
+#newsletter p {
+    font-size: .75em;
+    font-style: italic;
+    padding: 0 24px 0 66px;
+}
+
+#newsletter fieldset {
+    display: inline;
+}
+#newsletter .submit {
+    margin-left: 10px;
+}
+
+
+#recent {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+#recent article h1 {
+    line-height: 1.3em;
+    margin: 10px 0 10px;
+}
+#recent article p {
+    font-size: .875em;
+    line-height: 1.45em;
+}
+#recent article p.meta {
+    color: #aaaaaa;
+    margin-top: 10px;
+}
+
+.content #recent img.border {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 1px 2px 3px #f5f5f5;
+       -moz-box-shadow: 1px 1px 3px #f5f5f5;
+            box-shadow: 1px 1px 3px #f5f5f5;
+    max-width: calc(100% - 18px);
+    padding: 9px;
+}
+.content #recent article a {
+    max-width: calc(100% - 18px);
+}
+
+
+@media only screen and (max-width:991px) {
+    .wrapper {
+        padding: 20px 28px 0;
+        width: 712px;
+    }
+    nav li[id^="t-"] a:hover {
+        background-position: 50% 3px;
+    }
+}
+@media only screen and (max-width: 1174) and (min-width:992px) {
+    .wrapper {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-areas: "header-left hero" "footer footer";
+        grid-template-columns: 160px 1fr;
+    }
+}
+@media only screen and (max-width: 1175px) and (min-width: 768px) {
+    body {
+        padding: 0 28px 0;
+    }
+
+    header {
+        align-content: start;
+        display: grid;
+        grid-area: header-left;
+        grid-gap: 0;
+        grid-template-areas: "h1 nav";
+        grid-template-columns: 200px 1fr;
+    }
+    aside {
+        display: none;
+    }
+
+    nav ul {
+        align-content: end;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+        list-style: none;
+        padding: 0;
+    }
+    header nav li a {
+        background-position: 50% 0;
+        padding: 40px 0 0;
+        text-align: center;
+    }
+    header nav a {
+        display: inline;
+        padding: 35px 15px 0 15px;
+    }
+    header nav {
+        align-content: center;
+        display: grid;
+        margin-top: 0;
+    }
+    header nav li {
+        margin-bottom: 0;
+    }
+    #featured .slide img {
+        height: 445px;
+        max-width: none;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-width: 1176px) {
+    .wrapper {
+        margin: 0 auto;
+        padding: 50px 0 0;
+        width: 1080px;
+    }
+}
+
+@media only screen and (max-width: 1175px) {
+    #featured nav a h3 {
+        font-size: .875em;
+    }
+    #featured nav a p {
+        display: none;
+    }
+    #featured nav li {
+        padding: 12px 0;
+        text-align: center;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-areas: "header-left"
+        "hero"
+        "footer";
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    #recent {
+        grid-template-columns: 1fr;
+    }
+    .content {
+        display: grid;
+        margin: 0 auto 20px auto;
+        width: 320px;
+    }
+    .content #recent,
+    .content #recent img.border {
+        margin: 0 auto;
+        width: 280px;
+    }
+    .content #recent img.border {
+        max-width: none;
+    }
+    .content #recent h1 {
+        font-size: 16px;
+    }
+    .content #recent p,
+    .content #recent p.meta {
+        font-size: 14px;
+    }
+    #newsletter {
+        background-position: 18px 15px;
+    }
+    #newsletter p {
+        float: none;
+        font-size: 11px;
+        font-style: italic;
+        padding: 0 0 0 66px;
+        width: 100%;
+    }
+    #featured .slide {
+        height: 310px;
+    }
+    #featured .slide .slide-img {
+        max-width: 100%;
+        overflow: hidden;
+    }
+    #featured .slide img {
+        max-width: none;
+    }
+    #newsletter form {
+        display: grid;
+        float: none;
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+    #featured nav {
+        display: none;
+    }
+    #featured .slide .caption h4 {
+        font-size: 13px;
+        padding: 10px;
+
+        justify-self: stretch;
+    }
+    #featured .slide .caption h5 {
+        font-size: 11px;
+        padding: 10px;
+
+        justify-self: stretch;
+    }
+    #featured .slide .caption {
+        align-content: end;
+    }
+    header {
+        align-content: center;
+        grid-gap: 0;
+    }
+    h1#branding {
+        align-self: center;
+        margin: 20px auto 0;
+        text-align: center;
+
+        order: 1;
+    }
+    aside {
+        display: none;
+    }
+    header nav ul {
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+    }
+    header nav li {
+        justify-self: center;
+    }
+    header nav li a {
+        color: #222222;
+        display: block;
+        font-size: 12px;
+        font-style: italic;
+        height: 28px;
+        padding: 20px 0;
+        -webkit-transition: all .2s ease;
+           -moz-transition: all .2s ease;
+             -o-transition: all .2s ease;
+                transition: all .2s ease;
+    }
+    #newsletter {
+        padding: 15px 0;
+    }
+    header nav li#t-tastemakers a {
+        background-image: none;
+    }
+    header nav li#t-blog a {
+        background-image: none;
+    }
+    nav li#t-vendors a {
+        background-image: none;
+    }
+    header nav li#t-contribute a {
+        background-image: none;
+    }
+    header nav li#t-about a {
+        background-image: none;
+    }
+    header nav {
+        border-bottom: 1px solid #e5e5e5;
+        margin: 0 auto;
+        width: 320px;
+    }
+    footer {
+        font-size: 12px;
+        margin: 0 20px;
+    }
+}

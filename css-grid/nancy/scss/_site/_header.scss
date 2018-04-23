@@ -1,9 +1,15 @@
-
+header {
+    align-content: start;
+    display: grid;
+    grid-area: header-left;
+    grid-gap: 24px;
+    grid-template-areas: "h1" "nav" "aside";
+}
 header nav {
     margin-top: 20px;
 }
 header h1#branding {
-    background: url(food-sense.png) no-repeat 0 0;
+    background: url(../img/food-sense.png) no-repeat 0 0;
     height: 120px;
     margin-top: 0;
     text-indent: -999em;
@@ -53,6 +59,36 @@ header nav li#t-about a {
 }
 nav li[id^="t-"] a:hover {
     background-position: 5px 65%;
+}
+aside[role="social"] section h1 {
+    border-bottom: 1px dashed #e5e5e5;
+    font-size: .75em;
+    margin: 0 0 9px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+aside[role="social"] a.button {
+    background: no-repeat 6px 6px;
+    height: 24px;
+    padding: 4px 0 0 28px;
+    width: 120px;
+}
+aside[role="social"] section p {
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.75em;
+    margin-bottom: 15px;
+}
+aside .twitter a.button {
+    background-image: url("../img/icon-twitter-16.png");
+}
+aside .facebook a.button {
+    background-image: url("../img/icon-facebook-16.png");
+}
+aside[role="social"] section {
+    display: block;
+    margin-bottom: 32px;
+    padding-right: 20px;
 }
 
 

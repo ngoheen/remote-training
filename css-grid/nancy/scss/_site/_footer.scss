@@ -3,8 +3,54 @@
 * *******  FOOTER  ***********
 * ***************************
 * *************************** */
+/* ---------------- */
+/* ---- footer ---- */
+/* ---------------- */
 
-.footer {
+footer.footer {
+    border-top: 2px solid #e5e5e5;
+    clear: both;
+    color: #aaaaaa;
+    min-height: 70px;
+    padding-top: 20px;
+    position: relative;
+}
+footer.footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+}
+footer.footer p {
+    font-size: .75em;
+    line-height: 1.5em;
+}
+footer .social ul {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+}
+footer .social li {
+    display: inline-block;
+}
+footer .social li a {
+    display: block;
+    height: 32px;
+    opacity: .4;
+    text-indent: -999em;
+    -webkit-transition: opacity .3s ease;
+       -moz-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+    width: 32px;
+}
+footer .twitter a {
+    background: url("../img/icon-twitter.png") no-repeat 50% 1px;
+}
+footer .facebook a {
+    background: url("../img/icon-facebook.png") no-repeat 50% 0;
+}
+footer .rss a {
+    background: url("../img/icon-rss.png") no-repeat 50% 0;
 }
 
 /* ***************************
